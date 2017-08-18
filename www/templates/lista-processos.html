@@ -1,0 +1,40 @@
+<ion-view view-title="{{title}}" >
+      <div class="row bar bar-subheader bar-dark" style="font-size:10px; margin:0px; height:55px;">
+        
+        <div class="col col-35">Num. Processo</div>
+        <div class="col col-35">Assuto</div>
+        <div class="col col-15">Prazo Processual</div>
+        <div class="col col-15">Dia(s) Corrido(s)</div>
+        
+    </div>
+    <ion-content class="has-subheader">
+    <div style="padding-top:6px;"> 
+    
+      <a ng-click="showAction(processo.Id)" class="row button button-full"  ng-repeat="processo in processos" style="font-size:8px;" ng-class-odd="'odd-button'" >
+             <div class="col col-35">
+                  {{processo.Numero}}
+             </div>
+             <div class="col col-35">
+              {{processo.Assunto.Nome}}
+             </div>
+             <div class="col col-15">
+                  {{processo.Prazo | sqltodate | date: 'dd/MM/yyyy'}}
+             </div>
+             <div class="col col-15">
+                 
+                 <span ng-class="{ expirado : (processo.Dias<=0 && processo.Dias > 5) , noprazo : processo.Dias >=10, expirando : ( processo.Dias >= 5 && processo.Dias < 10  )  }" class="badge badge-assertive">{{ processo.Dias>0 ? processo.Dias: 'Expirado'}}</span>
+             </div>                 
+                        
+      </a>
+    </div>
+  </ion-content>
+<ion-footer-bar>
+      <div style="position: absolute; bottom: 0px; width: 100%;">
+        <div class="row">
+          <div class="col">
+            <a ng-click="consultaAvancada()" class="button button-full button-balanced" style="margin-bottom: 0px">Pesquisar</a>
+          </div>
+        </div>
+      </div>
+    </ion-footer-bar>
+</ion-view>  

@@ -1,0 +1,23 @@
+<ion-view view-title="Histórico">  
+    <div class="row bar bar-subheader bar-dark text-center" style="font-size:10px; margin:0px; height:55px;">
+        <div class="col col-33">Data Recebimento</div>
+        <div class="col col-33">De</div>
+        <div class="col col-33">Despacho</div>
+    </div>
+   <ion-content class="has-subheader">
+    <div style="padding-top:6px;">
+       <a  class="row button button-full"  ng-repeat="h in historico" style="font-size:10px;" ng-class-odd="'odd-button'" >
+             
+             <div class="col col-33">
+                 {{h.Data | sqltodate | date: 'dd/MM/yyyy' }}
+             </div>
+                <div class="col col-33">
+                  {{h.De}}
+             </div>  
+            <div class="col col-33">
+                  {{h.Parecer}}
+             </div>                        
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

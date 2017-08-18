@@ -1,0 +1,48 @@
+<ion-modal-view ng-controller="PesquisaModalCtrl as vm">
+  <ion-header-bar>
+    <h1 class="title">Consulta Avançada</h1>
+    <div class="buttons">
+      <button class="button button-positive" ng-click="vm.closePesquisa()">Fechar</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doConsulta()">
+      <div class="list">
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Assunto
+    </div>
+    <select  ng-model="vm.assunto" ng-options="assunto.Nome for assunto in vm.assuntos">
+      <option value="" style="display: none;" >---</option>
+    </select>
+  </label>
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Orgão
+    </div>
+    <select  ng-model="vm.orgao" ng-options="orgao.Nome for orgao in vm.orgaos">
+      <option value="" style="display: none;" >---</option>
+    </select>
+  </label>
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Setor
+    </div>
+    <select  ng-model="vm.setor" ng-options="setor.Nome for setor in vm.setores">
+      <option value="" style="display: none;" >---</option>
+    </select>
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="Nome Do Requerente" ng-model="vm.requerente">
+  </label>
+
+  <label class="item">
+    <button ng-click="vm.consulta(vm.assunto,vm.orgao,vm.setor,vm.requerente)" class="button button-block button-positive" type="submit">Buscar</button>
+  </label>
+  <label class="item">
+          <button ng-click="vm.limpar()" class="button button-block button-energized" type="submit">Limpar</button>
+  </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

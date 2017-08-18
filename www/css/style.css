@@ -1,0 +1,18 @@
+.badge.expirado {
+    background-color: #DB210E !important;
+    color: #fff;
+}
+
+.badge.expirando {
+    background-color:#FFAE20 !important;
+    color: #fff;
+}
+
+.badge.noprazo {
+    background-color: green !important;
+    color: #fff;
+}
+
+.odd-button {
+    background-color: #FFF4B7 !important;
+}
